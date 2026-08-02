@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Water-Tank PCS and SIS Project | Simon Kamua
+  </title>
+
+  <meta
+    name="description"
+    content="Water-tank process control and independent protection demonstrator featuring split-range control, VFD pumps, automatic changeover and 2oo3 voting."
+  >
+
+  <meta name="author" content="Simon Kamua">
+  <meta name="theme-color" content="#0b1f33">
+
+  <meta
+    property="og:title"
+    content="Water-Tank PCS and SIS Control System"
+  >
+  <meta
+    property="og:description"
+    content="An independently developed process-control and protection case study by Simon Kamua."
+  >
+  <meta property="og:type" content="article">
+  <meta
+    property="og:url"
+    content="https://simonkamua.github.io/projects/water-tank/"
+  >
+
+  <link
+    rel="canonical"
+    href="https://simonkamua.github.io/projects/water-tank/"
+  >
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <script src="../../assets/js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <!-- =======================================================
+       Header
+       ======================================================= -->
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a
+        class="brand"
+        href="../../index.html"
+        aria-label="Simon Kamua homepage"
+      >
+        Simon <span>Kamua</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+        aria-label="Open navigation menu"
+      >
+        Menu
+      </button>
+
+      <nav
+        class="site-nav"
+        id="site-navigation"
+        aria-label="Main navigation"
+      >
+        <a
+          class="active"
+          aria-current="page"
+          href="../../index.html#projects"
+        >
+          Projects
+        </a>
+        <a href="../../index.html#experience">Experience</a>
+        <a href="../../index.html#recognition">Recognition</a>
+        <a href="../../index.html#systems">Systems</a>
+        <a href="../../index.html#contact">Contact</a>
+        <a href="../../cv/Simon_Kamua_PLC_SIS_CV_2026.pdf">
+          CV
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================
+         Project hero
+         ===================================================== -->
+
+    <section class="project-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a>
+          &nbsp;/&nbsp;
+          <a href="../../index.html#projects">Projects</a>
+          &nbsp;/&nbsp;
+          Water-Tank PCS and SIS
+        </div>
+
+        <span class="eyebrow">Flagship automation project</span>
+
+        <h1>Water-Tank PCS and SIS Control System</h1>
+
+        <p>
+          An independently developed control-system demonstrator combining
+          continuous level control, a modulating inlet valve, VFD-controlled
+          duty/standby pumps, automated pump changeover and an independent
+          three-transmitter protection layer.
+        </p>
+
+        <div class="badge-row">
+          <span class="badge badge-pending">In development</span>
+          <span class="badge badge-designed">Personal project</span>
+          <span class="badge badge-simulated">
+            Educational simulation
+          </span>
+        </div>
+
+        <div class="button-row">
+          <a class="btn btn-primary" href="simulation.html">
+            Launch Simulation
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="../../downloads/water-tank-portfolio.zip"
+            download
+          >
+            Download Project Package
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Project summary
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span>Process controller</span>
+            <strong>Omron PLC</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Protection platform</span>
+            <strong>ESP32-S3 Demonstrator</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Control strategy</span>
+            <strong>PID and Split Range</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Protection voting</span>
+            <strong>2oo3 Level Voting</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Purpose and scope
+         ===================================================== -->
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Engineering purpose</span>
+          <h2>Project objectives and boundaries</h2>
+
+          <p>
+            The project demonstrates how normal process control, equipment
+            protection and an independent shutdown layer can be separated
+            while still coordinating their responses to abnormal conditions.
+          </p>
+        </div>
+
+        <div class="two-column">
+          <article class="panel">
+            <h3>Control objectives</h3>
+
+            <ul>
+              <li>
+                Maintain tank level close to the operator-selected setpoint.
+              </li>
+              <li>
+                Coordinate inlet-valve position and discharge-pump speed.
+              </li>
+              <li>
+                Operate two VFD pumps in duty/standby configuration.
+              </li>
+              <li>
+                Perform automated, bumpless pump changeover.
+              </li>
+              <li>
+                Detect pump faults, transmitter faults and abnormal levels.
+              </li>
+              <li>
+                Prevent pump dry running and uncontrolled tank filling.
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Project boundaries</h3>
+
+            <ul>
+              <li>
+                The process and instrument values are simulated.
+              </li>
+              <li>
+                Setpoints are illustrative rather than plant-design values.
+              </li>
+              <li>
+                No employer drawings, logic or operating data are used.
+              </li>
+              <li>
+                Final-element sizing and SIL verification are excluded.
+              </li>
+              <li>
+                The ESP32 is used only as an educational logic demonstrator.
+              </li>
+              <li>
+                The project must not be applied directly to an operating
+                plant.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Architecture
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">System architecture</span>
+          <h2>PCS control with an independent protection layer</h2>
+
+          <p>
+            The PCS regulates normal operation. Separate level transmitters
+            feed the protection controller, reducing dependence on the normal
+            control measurement.
+          </p>
+        </div>
+
+        <div class="diagram-frame">
+          <svg
+            viewBox="0 0 1000 500"
+            role="img"
+            aria-labelledby="architecture-title architecture-description"
+            style="width: 100%; height: auto;"
+          >
+            <title id="architecture-title">
+              Water-tank control-system architecture
+            </title>
+
+            <desc id="architecture-description">
+              A reservoir supplies a tank through a modulating inlet valve.
+              Two variable-speed pumps discharge the tank. An Omron PLC
+              provides normal process control, while an ESP32 demonstrator
+              receives three independent level signals for two-out-of-three
+              protection voting.
+            </desc>
+
+            <defs>
+              <marker
+                id="arrow"
+                markerWidth="10"
+                markerHeight="10"
+                refX="8"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path d="M0,0 L0,6 L9,3 z" fill="#007c83"></path>
+              </marker>
+            </defs>
+
+            <!-- Process equipment -->
+
+            <rect
+              x="45"
+              y="75"
+              width="150"
+              height="110"
+              rx="12"
+              fill="#edf4f6"
+              stroke="#0b1f33"
+              stroke-width="3"
+            ></rect>
+
+            <text
+              x="120"
+              y="120"
+              text-anchor="middle"
+              fill="#0b1f33"
+              font-size="20"
+              font-weight="700"
+            >
+              Reservoir
+            </text>
+
+            <text
+              x="120"
+              y="150"
+              text-anchor="middle"
+              fill="#52616f"
+              font-size="15"
+            >
+              Feed source
+            </text>
+
+            <line
+              x1="195"
+              y1="130"
+              x2="280"
+              y2="130"
+              stroke="#007c83"
+              stroke-width="5"
+              marker-end="url(#arrow)"
+            ></line>
+
+            <circle
+              cx="330"
+              cy="130"
+              r="42"
+              fill="#ffffff"
+              stroke="#007c83"
+              stroke-width="4"
+            ></circle>
+
+            <text
+              x="330"
+              y="126"
+              text-anchor="middle"
+              fill="#0b1f33"
+              font-size="17"
+              font-weight="700"
+            >
+              LCV
+            </text>
+
+            <text
+              x="330"
+              y="147"
+              text-anchor="middle"
+              fill="#52616f"
+              font-size="12"
+            >
+              Fail close
+            </text>
+
+            <line
+              x1="372"
+              y1="130"
+              x2="455"
+              y2="130"
+              stroke="#007c83"
+              stroke-width="5"
+              marker-end="url(#arrow)"
+            ></line>
+
+            <rect
+              x="470"
+              y="50"
+              width="220"
+              height="220"
+              rx="18"
+              fill="#ffffff"
+              stroke="#0b1f33"
+              stroke-width="4"
+            ></rect>
+
+            <rect
+              x="485"
+              y="145"
+              width="190"
+              height="110"
+              rx="6"
+              fill="#d9f0ef"
+            ></rect>
+
+            <text
+              x="580"
+              y="90"
+              text-anchor="middle"
+              fill="#0b1f33"
+              font-size="22"
+              font-weight="700"
+            >
+              Process Tank
+            </text>
+
+            <text
+              x="580"
+              y="120"
+              text-anchor="middle"
+              fill="#52616f"
+              font-size="14"
+            >
+              LT-101 + LT-201A/B/C
+            </text>
+
+            <line
+              x1="690"
+              y1="190"
+              x2="765"
+              y2="190"
+              stroke="#007c83"
+              stroke-width="5"
+              marker-end="url(#arrow)"
+            ></line>
+
+            <rect
+              x="780"
+              y="100"
+              width="170"
+              height="72"
+              rx="12"
+              fill="#edf4f6"
+              stroke="#0b1f33"
+              stroke-width="3"
+            ></rect>
+
+            <text
+              x="865"
+              y="130"
+              text-anchor="middle"
+              fill="#0b1f33"
+              font-size="18"
+              font-weight="700"
+            >
+              Pump A
+            </text>
+
+            <text
+              x="865"
+              y="153"
+              text-anchor="middle"
+              fill="#52616f"
+              font-size="13"
+            >
+              VFD duty/standby
+            </text>
+
+            <rect
+              x="780"
+              y="205"
+              width="170"
+              height="72"
+              rx="12"
+              fill="#edf4f6"
+              stroke="#0b1f33"
+              stroke-width="3"
+            ></rect>
+
+            <text
+              x="865"
+              y="235"
+              text-anchor="middle"
+              fill="#0b1f33"
+              font-size="18"
+              font-weight="700"
+            >
+              Pump B
+            </text>
+
+            <text
+              x="865"
+              y="258"
+              text-anchor="middle"
+              fill="#52616f"
+              font-size="13"
+            >
+              VFD duty/standby
+            </text>
+
+            <!-- Controllers -->
+
+            <rect
+              x="185"
+              y="345"
+              width="260"
+              height="105"
+              rx="14"
+              fill="#0b1f33"
+            ></rect>
+
+            <text
+              x="315"
+              y="383"
+              text-anchor="middle"
+              fill="#ffffff"
+              font-size="20"
+              font-weight="700"
+            >
+              Omron PCS
+            </text>
+
+            <text
+              x="315"
+              y="412"
+              text-anchor="middle"
+              fill="#d9e5ec"
+              font-size="14"
+            >
+              PID, split range and pump control
+            </text>
+
+            <rect
+              x="555"
+              y="345"
+              width="260"
+              height="105"
+              rx="14"
+              fill="#7a1f26"
+            ></rect>
+
+            <text
+              x="685"
+              y="383"
+              text-anchor="middle"
+              fill="#ffffff"
+              font-size="20"
+              font-weight="700"
+            >
+              Protection Demonstrator
+            </text>
+
+            <text
+              x="685"
+              y="412"
+              text-anchor="middle"
+              fill="#ffffff"
+              font-size="14"
+            >
+              ESP32-S3 with 2oo3 voting
+            </text>
+
+            <!-- Signal paths -->
+
+            <path
+              d="M515 270 L400 345"
+              fill="none"
+              stroke="#007c83"
+              stroke-width="3"
+              stroke-dasharray="8 7"
+              marker-end="url(#arrow)"
+            ></path>
+
+            <path
+              d="M640 270 L680 345"
+              fill="none"
+              stroke="#7a1f26"
+              stroke-width="3"
+              stroke-dasharray="8 7"
+            ></path>
+
+            <path
+              d="M315 345 L330 175"
+              fill="none"
+              stroke="#007c83"
+              stroke-width="3"
+              stroke-dasharray="8 7"
+            ></path>
+
+            <path
+              d="M445 400 L865 277"
+              fill="none"
+              stroke="#007c83"
+              stroke-width="3"
+              stroke-dasharray="8 7"
+            ></path>
+
+            <path
+              d="M685 345 L372 150"
+              fill="none"
+              stroke="#7a1f26"
+              stroke-width="3"
+              stroke-dasharray="8 7"
+            ></path>
+          </svg>
+        </div>
+
+        <div class="callout" style="margin-top: 1.5rem;">
+          Dashed teal lines represent normal PCS signals. Red lines
+          represent the conceptual independent protection path.
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Control philosophy
+         ===================================================== -->
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Control philosophy</span>
+          <h2>Normal level-control strategy</h2>
+        </div>
+
+        <div class="two-column">
+          <article class="panel">
+            <h3>Split-range control</h3>
+
+            <p>
+              LT-101 provides the normal process level to the PCS level
+              controller. The controller produces a common response index
+              used to coordinate inlet flow and outlet pumping.
+            </p>
+
+            <ul>
+              <li>
+                At low level, the inlet valve opens further and pump speed
+                reduces toward its minimum stable operating speed.
+              </li>
+              <li>
+                Near setpoint, the inlet valve and duty pump operate around
+                configured bias values.
+              </li>
+              <li>
+                At high level, the inlet valve closes progressively and the
+                duty-pump speed increases.
+              </li>
+              <li>
+                Output tracking and configured ramp rates minimise process
+                disturbances during mode changes.
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Transmitter failure direction</h3>
+
+            <p>
+              The PCS level signal is configured with upscale burnout
+              handling. A detected bad-quality or out-of-range signal raises
+              an alarm and prevents uncontrolled automatic response.
+            </p>
+
+            <ul>
+              <li>Automatic pump starting is blocked.</li>
+              <li>Controller outputs move to a configured safe bias.</li>
+              <li>The operator receives a transmitter-fault alarm.</li>
+              <li>
+                Protection remains available through the separate voting
+                transmitters.
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout callout-warning" style="margin-top: 1.5rem;">
+          Split-range limits, overlap, deadband and bias values must be
+          established from pump curves, valve characteristics and dynamic
+          process testing. They are not universal constants.
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Pump management
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Equipment sequencing</span>
+          <h2>Duty/standby pump management</h2>
+        </div>
+
+        <div class="two-column">
+          <article class="panel">
+            <h3>Pump availability</h3>
+
+            <p>
+              A pump is considered available only when all required
+              permissives are healthy.
+            </p>
+
+            <ul>
+              <li>Local emergency stop healthy.</li>
+              <li>VFD ready and communication healthy.</li>
+              <li>No motor overload or active VFD fault.</li>
+              <li>Remote operating mode selected.</li>
+              <li>Minimum suction level satisfied.</li>
+              <li>No active maintenance inhibit.</li>
+              <li>Protection trip reset.</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Bumpless changeover sequence</h3>
+
+            <ol>
+              <li>Confirm the standby pump is available.</li>
+              <li>Issue the standby-pump start command.</li>
+              <li>Confirm run feedback before the start timeout expires.</li>
+              <li>
+                Ramp the incoming pump to the tracked operating-speed demand.
+              </li>
+              <li>
+                Ramp the outgoing pump toward its minimum operating speed.
+              </li>
+              <li>Stop the outgoing pump and confirm stopped feedback.</li>
+              <li>
+                Transfer the duty designation to the running replacement.
+              </li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="section-heading" style="margin-top: 3rem;">
+          <h2>Detected pump faults</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table class="engineering-table">
+            <thead>
+              <tr>
+                <th>Fault</th>
+                <th>Detection</th>
+                <th>Control response</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Start failure</td>
+                <td>
+                  Run feedback absent after the configured start timeout.
+                </td>
+                <td>
+                  Cancel start, mark pump unavailable and start the healthy
+                  standby pump.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Unexpected stop</td>
+                <td>
+                  Run feedback is lost while a run command remains active.
+                </td>
+                <td>
+                  Alarm, remove the failed pump command and initiate standby
+                  changeover.
+                </td>
+              </tr>
+
+              <tr>
+                <td>VFD or motor fault</td>
+                <td>
+                  VFD fault, motor overload or protection relay input.
+                </td>
+                <td>
+                  Stop the affected pump, latch the fault and transfer duty
+                  when the standby unit is available.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Speed deviation</td>
+                <td>
+                  Actual speed differs from demand beyond tolerance for a
+                  configured delay.
+                </td>
+                <td>
+                  Raise an alarm and initiate changeover if pumping
+                  performance is inadequate.
+                </td>
+              </tr>
+
+              <tr>
+                <td>No-flow condition</td>
+                <td>
+                  Pump running with low discharge flow after a proving delay.
+                </td>
+                <td>
+                  Stop the pump to prevent damaging operation and attempt
+                  standby transfer.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Both pumps unavailable</td>
+                <td>
+                  Neither pump satisfies its availability permissives.
+                </td>
+                <td>
+                  Raise a high-priority alarm and limit or close inlet flow
+                  as tank level rises.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Protection functions
+         ===================================================== -->
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Independent protection</span>
+          <h2>Voting, trips and reset philosophy</h2>
+
+          <p>
+            LT-201A, LT-201B and LT-201C provide independent measurements to
+            the protection demonstrator. Two agreeing channels are required
+            to initiate a level trip.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="engineering-table">
+            <thead>
+              <tr>
+                <th>Initiating event</th>
+                <th>Detection</th>
+                <th>Automatic action</th>
+                <th>Reset condition</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>High-high level</td>
+                <td>2oo3 transmitters above LAHH</td>
+                <td>
+                  Close and inhibit opening of the inlet valve; raise a
+                  latched high-high alarm. Keep an eligible discharge pump
+                  available unless a separate downstream hazard requires it
+                  to stop.
+                </td>
+                <td>
+                  Level below the reset threshold, initiating condition
+                  healthy and manual reset requested.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Low-low level</td>
+                <td>2oo3 transmitters below LALL</td>
+                <td>
+                  Trip and inhibit both discharge pumps to prevent dry
+                  running; raise a latched low-low alarm.
+                </td>
+                <td>
+                  Level above the reset threshold, pump permissives healthy
+                  and manual reset requested.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Transmitter disagreement</td>
+                <td>
+                  Channel deviation exceeds the configured tolerance and
+                  delay.
+                </td>
+                <td>
+                  Raise a protection-system degraded alarm and identify the
+                  disagreeing channel.
+                </td>
+                <td>
+                  Measurements agree within tolerance and the fault is
+                  acknowledged.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Invalid protection channel</td>
+                <td>
+                  Bad quality, out-of-range input or diagnostic failure.
+                </td>
+                <td>
+                  Annunciate degraded operation and inhibit automatic trip
+                  reset.
+                </td>
+                <td>
+                  Channel health restored and voting state verified.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          class="callout callout-warning"
+          style="margin-top: 1.5rem; color: #172431;"
+        >
+          A real SIS requires an approved Safety Requirements Specification,
+          hazard analysis, independence review, SIL verification, certified
+          hardware, proof-test procedures and controlled management of
+          bypasses and overrides.
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Simulation setpoints
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Simulation configuration</span>
+          <h2>Illustrative level setpoints</h2>
+
+          <p>
+            These values support the educational simulation only. They are
+            not recommended plant setpoints.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="engineering-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Simulation value</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Normal level setpoint</td>
+                <td>55%</td>
+                <td>Target value for normal PCS control.</td>
+              </tr>
+
+              <tr>
+                <td>High-level alarm</td>
+                <td>80%</td>
+                <td>Early operator warning before protective action.</td>
+              </tr>
+
+              <tr>
+                <td>High-high trip</td>
+                <td>90%</td>
+                <td>2oo3 protection vote closes the inlet path.</td>
+              </tr>
+
+              <tr>
+                <td>High-high reset threshold</td>
+                <td>85%</td>
+                <td>Provides hysteresis before manual reset is permitted.</td>
+              </tr>
+
+              <tr>
+                <td>Low-level alarm</td>
+                <td>25%</td>
+                <td>Warns of reduced pump suction inventory.</td>
+              </tr>
+
+              <tr>
+                <td>Low-low pump trip</td>
+                <td>15%</td>
+                <td>Stops discharge pumps to prevent dry running.</td>
+              </tr>
+
+              <tr>
+                <td>Low-low reset threshold</td>
+                <td>20%</td>
+                <td>Requires level recovery before reset.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Conceptual I/O
+         ===================================================== -->
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Control-system implementation</span>
+          <h2>Conceptual I/O allocation</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table class="engineering-table">
+            <thead>
+              <tr>
+                <th>Signal group</th>
+                <th>Typical signals</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>PCS analogue inputs</td>
+                <td>
+                  Tank level, pump speed feedback, discharge flow and
+                  pressure.
+                </td>
+                <td>
+                  Process control, validation and equipment monitoring.
+                </td>
+              </tr>
+
+              <tr>
+                <td>PCS analogue outputs</td>
+                <td>
+                  Inlet-valve demand and Pump A/B speed references.
+                </td>
+                <td>
+                  Modulating control of inlet and outlet capacity.
+                </td>
+              </tr>
+
+              <tr>
+                <td>PCS digital inputs</td>
+                <td>
+                  VFD ready, run feedback, fault, overload, remote mode and
+                  emergency-stop health.
+                </td>
+                <td>
+                  Permissives, equipment status and fault detection.
+                </td>
+              </tr>
+
+              <tr>
+                <td>PCS digital outputs</td>
+                <td>
+                  Pump start/stop commands and alarm indications.
+                </td>
+                <td>
+                  Equipment sequencing and operator notification.
+                </td>
+              </tr>
+
+              <tr>
+                <td>Protection analogue inputs</td>
+                <td>LT-201A, LT-201B and LT-201C.</td>
+                <td>Independent 2oo3 level voting.</td>
+              </tr>
+
+              <tr>
+                <td>Protection outputs</td>
+                <td>
+                  Inlet trip override, pump low-low trip and PCS trip-status
+                  indication.
+                </td>
+                <td>
+                  Protective action and status communication.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Verification
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Verification strategy</span>
+          <h2>Planned functional testing</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table class="engineering-table">
+            <thead>
+              <tr>
+                <th>Test</th>
+                <th>Expected result</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Normal level disturbance</td>
+                <td>
+                  Valve and pump responses return level toward setpoint
+                  without excessive oscillation.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Pump A to Pump B changeover</td>
+                <td>
+                  Incoming pump reaches tracked demand before the outgoing
+                  pump stops.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Duty-pump start failure</td>
+                <td>
+                  Failed pump is declared unavailable and the standby pump is
+                  started.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Single protection channel high</td>
+                <td>
+                  Channel indication is shown but no 2oo3 trip occurs.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Two protection channels high-high</td>
+                <td>
+                  The inlet trip latches and valve opening is inhibited.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Two protection channels low-low</td>
+                <td>
+                  Both discharge pumps trip and restart remains inhibited.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Transmitter disagreement</td>
+                <td>
+                  The disagreeing channel and degraded-system alarm are
+                  displayed.
+                </td>
+                <td>Planned</td>
+              </tr>
+
+              <tr>
+                <td>Trip reset attempt with active cause</td>
+                <td>
+                  Reset is rejected until the process and permissives are
+                  healthy.
+                </td>
+                <td>Planned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Deliverables
+         ===================================================== -->
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Project documentation</span>
+          <h2>Planned portfolio deliverables</h2>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <h3>Interactive simulation</h3>
+
+            <p>
+              Browser-based tank, valve, pump and trip-system simulation.
+            </p>
+
+            <a class="btn btn-primary" href="simulation.html">
+              Launch Simulation
+            </a>
+          </article>
+
+          <article class="download-card">
+            <h3>Engineering package</h3>
+
+            <p>
+              Control philosophy, I/O list, cause-and-effect matrix and test
+              documentation.
+            </p>
+
+            <a
+              class="btn btn-secondary"
+              href="../../downloads/water-tank-portfolio.zip"
+              download
+            >
+              Download Package
+            </a>
+          </article>
+
+          <article class="download-card">
+            <h3>Project overview</h3>
+
+            <p>
+              Return to the portfolio homepage and review the other automation
+              studies.
+            </p>
+
+            <a
+              class="btn btn-secondary"
+              href="../../index.html#projects"
+            >
+              View All Projects
+            </a>
+          </article>
+        </div>
+
+        <div class="callout callout-danger" style="margin-top: 2rem;">
+          <strong>Safety notice:</strong>
+          The ESP32-S3 is not a certified safety PLC. This demonstrator must
+          not be used to implement a real safety instrumented function.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       Footer
+       ======================================================= -->
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>
+        &copy; <span id="current-year">2026</span>
+        Simon Kamua. Industrial Automation Portfolio.
+      </p>
+
+      <div class="footer-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#projects">Projects</a>
+        <a href="../../cv/Simon_Kamua_PLC_SIS_CV_2026.pdf">CV</a>
+        <a href="mailto:kamuasimeon@gmail.com">Email</a>
+        <a
+          href="https://www.linkedin.com/in/simon-kamua-145562236"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
