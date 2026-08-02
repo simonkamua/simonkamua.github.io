@@ -1,5 +1,0 @@
-Cause,Vote,LCV-101,P-101A,P-101B,Alarm,Reset
-Tank level high-high,2oo3 >= 90%,Close and inhibit,No trip,No trip,HH inlet trip,All valid < 85% + manual
-Tank level low-low,2oo3 <= 15%,No direct action,Trip and inhibit,Trip and inhibit,LL pump trip,All valid > 20% + manual
-One channel invalid,Diagnostic,No automatic action,No automatic action,No automatic action,Protection degraded,All valid before reset
-Protection power loss,De-energize,Close,Trip,Trip,Protection unhealthy,Power healthy + manual
