@@ -1,0 +1,13 @@
+Water-Tank PCS/SIS corrected reference-model verification
+PASS | Low reduction demand | expected=LCV 100%, pump 30% | actual=(100.0, 30.0)
+PASS | Overlap band | expected=LCV 70%, pump 40% | actual=(70.0, 40.0)
+PASS | Maximum reduction demand | expected=LCV 0%, pump 100% | actual=(0.0, 100.0)
+PASS | One high channel no trip | expected=No HH trip | actual=No trip
+PASS | Two high channels close inlet | expected=HH inlet trip | actual=Trip
+PASS | HH leaves LL pump permit healthy | expected=No pump trip | actual=No LL trip
+PASS | One low channel no trip | expected=No LL trip | actual=No trip
+PASS | Two low channels trip pumps | expected=LL pump trip | actual=Trip
+PASS | HH reset hysteresis | expected=Reset below HH | actual=85 < 90
+PASS | LL reset hysteresis | expected=Reset above LL | actual=20 > 15
+PASS | PCS LT upscale closes inlet | expected=Bad PV forces closed inlet | actual=110%
+SUMMARY: 11/11 PASS

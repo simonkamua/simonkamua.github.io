@@ -1,0 +1,9 @@
+Parameter,Value,Units,Purpose
+Normal level setpoint,55,%,PCS target
+High-level alarm,80,%,Operator warning
+High-high trip,90,%,2oo3 inlet shutdown
+High-high reset,85,%,Reset hysteresis
+Low-level alarm,25,%,Operator warning
+Low-low trip,15,%,2oo3 pump shutdown
+Low-low reset,20,%,Reset hysteresis
+Channel disagreement,5,% span,Degraded alarm

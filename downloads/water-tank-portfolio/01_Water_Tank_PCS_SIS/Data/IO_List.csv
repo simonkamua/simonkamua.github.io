@@ -1,0 +1,25 @@
+Tag,I/O type,Signal,Description,Range/state,Fail state,Controller/owner
+LT-101,AI,4-20 mA,PCS tank level,0-100%,Upscale / bad quality,PCS
+LT-201A,AI,4-20 mA,Protection level channel A,0-100%,Invalid channel,Protection demo
+LT-201B,AI,4-20 mA,Protection level channel B,0-100%,Invalid channel,Protection demo
+LT-201C,AI,4-20 mA,Protection level channel C,0-100%,Invalid channel,Protection demo
+FIT-101,AI,4-20 mA,Common pump-discharge flow,0-150 m3/h,Bad quality,PCS
+PIT-101,AI,4-20 mA,Common pump-discharge pressure,0-10 bar,Bad quality,PCS
+LCV-101.POS,AI,4-20 mA,Inlet-valve position feedback,0-100%,Bad quality,PCS
+LCV-101.CMD,AO,4-20 mA,Inlet-valve position demand,0-100%,0% / closed,PCS + HH override
+P-101A.SPD,AO/Net,0-100%,Pump A speed reference,0-100%,0%,PCS
+P-101B.SPD,AO/Net,0-100%,Pump B speed reference,0-100%,0%,PCS
+P-101A.RUN,DI,24 Vdc,Pump A run feedback,Run/Stop,Stopped,PCS
+P-101B.RUN,DI,24 Vdc,Pump B run feedback,Run/Stop,Stopped,PCS
+P-101A.READY,DI/Net,Boolean,Pump A VFD ready,Ready/Not ready,Not ready,PCS
+P-101B.READY,DI/Net,Boolean,Pump B VFD ready,Ready/Not ready,Not ready,PCS
+P-101A.FLT,DI/Net,Boolean,Pump A VFD fault,Healthy/Fault,Fault,PCS
+P-101B.FLT,DI/Net,Boolean,Pump B VFD fault,Healthy/Fault,Fault,PCS
+P-101A.REM,DI,24 Vdc,Pump A remote mode,Remote/Local,Local,PCS
+P-101B.REM,DI,24 Vdc,Pump B remote mode,Remote/Local,Local,PCS
+P-101A.START,DO,24 Vdc,Pump A start/stop command,Run/Stop,Stop,PCS + LL override
+P-101B.START,DO,24 Vdc,Pump B start/stop command,Run/Stop,Stop,PCS + LL override
+SIS.RESET,DI,Momentary,Protection manual reset,Pressed/Released,Released,Protection demo
+SIS.INLET_PERMIT,DO,De-energize,Permit LCV-101 to open,Permit/Trip,Trip / close,Protection demo
+SIS.PUMP_PERMIT,DO,De-energize,Permit P-101A/B to run,Permit/Trip,Trip / stop,Protection demo
+SIS.STATUS,DI/Net,Boolean word,Trip/degraded status to PCS,Status bits,Unhealthy,Protection demo to PCS
